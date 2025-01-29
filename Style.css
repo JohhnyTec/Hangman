@@ -7,7 +7,22 @@ body {
     min-width: 600px;
     text-align: center;
 }
-
+#addWordBox{
+    position: absolute;
+    height:50px;
+    width: 100%;
+    top:180px;
+    visibility: hidden;
+}
+#addWordBox input{
+    background-color: black;
+    color: gold;
+    border: 5px inset gold;
+    border-radius: 15px;
+    height: 50px;
+    width: 550px;
+    text-align: center;
+}
 div {
     text-align: center;
 }
@@ -121,14 +136,14 @@ option {
 #imageWin{
     position: relative;
     top:-160px;
-    left: 150px;
+    left: 40%;
     height: 300px;
     width: 300px;
     background-image: url(Gewonnen.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    visibility: hidden;
+    visibility: visible;
 }
 #Game {
     background-image: url(Hintergrund_Hangman.png);

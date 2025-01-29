@@ -16,10 +16,12 @@ function Level(level) {
 }
 
 function addWord(){
-    prompt('Gib dein Wort ein:');
+    document.getElementById('addWordBox').style.visibility="visible";
 }
-
-function Start(word) {
+function changeWord(){
+    word=document.getElementById('addedWord').value;
+}
+function Start() {
     SAVE.minuspoints=0;
     if(word == ""){
     word = gameinfo[SAVE.levelchoice].value[Math.floor(Math.random() * gameinfo[SAVE.levelchoice].value.length)];
@@ -29,6 +31,7 @@ function Start(word) {
     document.getElementById('points').innerText="❤️❤️❤️❤️❤️";
     document.getElementsByClassName('image')[0].id='image0';
     document.getElementById('imageWin').style.visibility="hidden";
+    document.getElementById('addWordBox').style.visibility="hidden";
     Letters = document.getElementsByClassName('letter');
     for (i = 0; i < Letters.length; i++) {
         document.getElementsByClassName('letter')[i].removeAttribute('disabled');
