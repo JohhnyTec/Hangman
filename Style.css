@@ -10,7 +10,7 @@ body {
 #addWordBox{
     position: absolute;
     height:50px;
-    width: 100%;
+    width: 99%;
     top:180px;
     visibility: hidden;
 }
@@ -37,9 +37,9 @@ header {
 }
 
 footer {
-    position: absolute;
-    bottom: 1%;
-    left: 2.5%;
+    position: fixed;
+    bottom:1%;
+    left: 2%;
     width: 95%;
 }
 
