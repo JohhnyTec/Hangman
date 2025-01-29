@@ -18,13 +18,14 @@ function Level(level) {
 function addWord(){
     document.getElementById('addWordBox').style.visibility="visible";
 }
-function changeWord(){
-    word=document.getElementById('addedWord').value;
-}
 function Start() {
     SAVE.minuspoints=0;
-    if(word == ""){
+    if(document.getElementById('addedWord').value ==""){
     word = gameinfo[SAVE.levelchoice].value[Math.floor(Math.random() * gameinfo[SAVE.levelchoice].value.length)];
+    }
+    else {
+        word=document.getElementById('addedWord').value;
+        document.getElementById('addedWord').value="";
     }
     task = "-".repeat(word.length);
     document.getElementById('Task').innerText = task;
