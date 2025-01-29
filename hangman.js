@@ -127,5 +127,3 @@ function Try(letter) { //z.B.: Try('n'); word="Internet"; task="--------";
 }
 
 buildGame();
-
-ByteLengthQueuingStrategy
