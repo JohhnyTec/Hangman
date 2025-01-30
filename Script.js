@@ -1,7 +1,7 @@
 let gameinfo = [
-    { value: ["Hangman","Server","Computer","Webseite","Hardware","Software","Tastatur","Google","Dokument","Sicherheit","Internet","Anwendung","Funktion","Code","Programm","Client","Informatik","Netzwerk","Snack","Monitor","Maus","Haus","Laus","Grafik","Handy","Speicher","Papierkorb","Arbeitsplatz","Datei"] },
-    { value: ["Hypertext", "Javascript", "Grafikdesign", "Webbrowser", "Computermaus", "Stylesheet", "Framework","Prozessor","Komplexitaet", "Abstraktion", "Dekomposition","Betriebssystem","Firewall","Malware","Virtualisierung","Darstellung","Grafikkarte","Smartphone","Festplatte","Bildschirm","Programmierung","Arbeitsspeicher","Pseudocode","Datenstruktur"] },
-    { value: ["Anglizismus", "Bundesausbildungsfoerderungsgesetz", "Arbeiterunfallversicherungsgesetz", "Netzwerktopologie","Prozessorleistung", "Kryptographieverfahren","Softwareentwicklung","Datenschutzbestimmungen","Dartellungsebene","Arbeitsspeicherauslastung","Konfigurationsdatei","Grafikkartenauslastung","Bildschirmfrequenz","Festplattenspeicher","Defragmentierung","Problembehandlung","Sytemkomponenten","Backendentwicklung","Frontendentwicklung"]}
+    { value: ["Hangman","Server","Computer","Webseite","Hardware","Software","Tastatur","Google","Dokument","Sicherheit","Internet","Anwendung","Funktion","Code","Programm","Client","Informatik","Netzwerk","Snack","Monitor","Maus","Haus","Laus","Grafik","Handy","Speicher","Papierkorb","Arbeitsplatz","Datei","Api","Array","Binaer"] },
+    { value: ["Hypertext", "Javascript", "Grafikdesign", "Webbrowser", "Computermaus", "Stylesheet", "Framework","Prozessor","Komplexitaet", "Abstraktion", "Dekomposition","Betriebssystem","Firewall","Malware","Virtualisierung","Darstellung","Grafikkarte","Smartphone","Festplatte","Bildschirm","Programmierung","Arbeitsspeicher","Pseudocode","Datenstruktur","Backup","Bandbreite","Blockchain"] },
+    { value: ["Anglizismus", "Bundesausbildungsfoerderungsgesetz", "Arbeiterunfallversicherungsgesetz", "Netzwerktopologie","Prozessorleistung", "Kryptographieverfahren","Softwareentwicklung","Datenschutzbestimmungen","Dartellungsebene","Arbeitsspeicherauslastung","Konfigurationsdatei","Grafikkartenauslastung","Bildschirmfrequenz","Festplattenspeicher","Defragmentierung","Problembehandlung","Sytemkomponenten","Backendentwicklung","Frontendentwicklung","Algorithmus","Datenbankmanagementsystem","Programmierschnittstelle","Versionsverwaltungssystem","Netzwerksicherheitsprotokoll","Betriebssystemkompatibilität","Speicherverwaltungseinheit","Verschlüsselungsalgorithmus","Authentifizierungsmechanismus","Fehlertoleranzmechanismus","Benutzerfreundlichkeitstest","Softwareentwicklungszyklus"]}
 ];
 let SAVE = {
     'levelchoice': 0,
@@ -11,6 +11,10 @@ let SAVE = {
 let word = "";
 let task = "";
 
+let eren = document.getElementsByClassName("EvilErens")[0];
+
+let timeout;
+
 function Level(level) {
     SAVE.levelchoice = level;
 }
@@ -19,6 +23,10 @@ function addWord(){
     document.getElementById('addWordBox').style.visibility="visible";
 }
 function Start() {
+   
+    eren.style.visibility = "visible";
+    eren.id = "imageerenstandard";
+
     SAVE.minuspoints=0;
     if(document.getElementById('addedWord').value ==""){
     word = gameinfo[SAVE.levelchoice].value[Math.floor(Math.random() * gameinfo[SAVE.levelchoice].value.length)];
@@ -51,6 +59,13 @@ function Try(clickedLetter) {
         if (letter === word.toLowerCase().charAt(i)) {
             test = "richtig";
             newTask[i] = word.charAt(i);
+
+            clearTimeout(timeout);
+            eren.id = "imageerensauer";
+            timeout = setTimeout(function () {
+                eren.id = "imageerenstandard";
+            }, 800);
+
         }
     }
 
@@ -68,6 +83,17 @@ function Try(clickedLetter) {
             for (i = 0; i < Letters.length; i++) {
                 document.getElementsByClassName('letter')[i].disabled="true";
             }
+            clearTimeout(timeout);
+            eren.id = "imageerenevil";
+             
+
+        }
+        else {
+            clearTimeout(timeout);
+            eren.id = "imageerenhappy";
+            timeout = setTimeout(function () {
+                eren.id = "imageerenstandard";
+            }, 800);
         }
     }
     else {
@@ -80,5 +106,9 @@ function Try(clickedLetter) {
             }
             document.getElementsByClassName('image')[0].id='image0';
             document.getElementById('imageWin').style.visibility='visible';
-    }
+            
+            clearTimeout(timeout);
+            eren.id = "imageerensauer";
+        }
+    
 }

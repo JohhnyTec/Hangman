@@ -1,3 +1,9 @@
+#EVILEREN {
+    background-color: black;
+    color: rgb(250, 70, 70);
+    text-shadow: 2px 2px 5px rgb(255, 0, 0);
+}
+
 body {
     background-color: black;
     color: azure;
@@ -152,13 +158,70 @@ option {
     background-repeat: no-repeat;
     height: 500px;
 }
+/*Philipp Anfang */
+.EvilErens{
+    visibility: hidden;
+}
+
+#imageerenstandard {
+    background-image: url(StanniEren.png);
+    background-size: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:200px;
+    position: relative;
+    top: -450px;
+    left: 67%;
+    width: 250px;
+
+}
+
+#imageerenhappy {
+    background-image: url(HappyEren.png);
+    background-size: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:200px;
+    position: relative;
+    top: -450px;
+    left: 67%;
+    width: 250px;
+}
+
+#imageerensauer {
+    background-image: url(MadEren.png);
+    background-size: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:200px;
+    position: relative;
+    top: -450px;
+    left: 67%;
+    width: 250px;
+}
+
+#imageerenevil {
+    background-image: url(EvilEren.png);
+    background-size: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    height:200px;
+    position: relative;
+    top: -450px;
+    left: 67%;
+    width: 250px;
+}
+
+
+
+/* Philipp Ende */
 
 #userInput {
     position: relative;
     text-align: center;
     height: 200px;
     width: 100%;
-    top: 50px;
+    top: 0px;
 }
 
 .letter {
@@ -194,7 +257,7 @@ option {
 
 #Task {
     position: relative;
-    top: -220px;
+    top: -410px;
     width: 100%;
     text-align: center;
     font-size: 50px;
