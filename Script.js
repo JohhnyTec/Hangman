@@ -1,8 +1,3 @@
-let gameinfo = [
-    { value: ["Hangman", "Server", "Computer", "Webseite", "Hardware", "Software", "Tastatur", "Google", "Dokument", "Sicherheit", "Internet", "Anwendung", "Funktion", "Code", "Programm", "Client", "Informatik", "Netzwerk", "Snack", "Monitor", "Maus", "Haus", "Laus", "Grafik", "Handy", "Speicher", "Papierkorb", "Arbeitsplatz", "Datei", "Api", "Array", "Binaer"] },
-    { value: ["Hypertext", "Javascript", "Grafikdesign", "Webbrowser", "Computermaus", "Stylesheet", "Framework", "Prozessor", "Komplexitaet", "Abstraktion", "Dekomposition", "Betriebssystem", "Firewall", "Malware", "Virtualisierung", "Darstellung", "Grafikkarte", "Smartphone", "Festplatte", "Bildschirm", "Programmierung", "Arbeitsspeicher", "Pseudocode", "Datenstruktur", "Backup", "Bandbreite", "Blockchain"] },
-    { value: ["Anglizismus", "Bundesausbildungsfoerderungsgesetz", "Arbeiterunfallversicherungsgesetz", "Netzwerktopologie", "Prozessorleistung", "Kryptographieverfahren", "Softwareentwicklung", "Datenschutzbestimmungen", "Dartellungsebene", "Arbeitsspeicherauslastung", "Konfigurationsdatei", "Grafikkartenauslastung", "Bildschirmfrequenz", "Festplattenspeicher", "Defragmentierung", "Problembehandlung", "Sytemkomponenten", "Backendentwicklung", "Frontendentwicklung", "Algorithmus", "Datenbankmanagementsystem", "Programmierschnittstelle", "Versionsverwaltungssystem", "Netzwerksicherheitsprotokoll", "Betriebssystemkompatibilitaet", "Speicherverwaltungseinheit", "Verschluesselungsalgorithmus", "Authentifizierungsmechanismus", "Fehlertoleranzmechanismus", "Benutzerfreundlichkeitstest", "Softwareentwicklungszyklus"] }
-];
 let SAVE = {
     'levelchoice': 0,
     'minuspoints': 0,
@@ -21,22 +16,38 @@ function addWord() {
     document.getElementById('addWordBox').style.visibility = "visible";
 }
 
-
-
-
 function Start() {
     eren.style.visibility = "visible";
     eren.id = "imageerenstandard";
 
     SAVE.minuspoints = 0;
     if (document.getElementById('addedWord').value == "") {
-        word = gameinfo[SAVE.levelchoice].value[Math.floor(Math.random() * gameinfo[SAVE.levelchoice].value.length)];
+        fetch('http://127.0.0.1:5000/wort/' + SAVE.levelchoice)
+        .then(response => {
+            if (!response.ok) { 
+                return response.json().then(err => {throw new Error(err.error)});
+            }
+            return response.json();
+        })
+        .then(data => {
+            word = data.wort;
+        })
+        .catch(error => {
+            console.error("Fehler beim Abrufen des Wortes:", error.message);
+            if (error.message === "Level nicht gefunden") {
+              alert("Das gewählte Level existiert nicht.");
+            } else {
+              alert("Server ist offline!");
+            }
+        });
     } else {
         word = document.getElementById('addedWord').value;
         document.getElementById('addedWord').value = "";
     }
-    task = "-".repeat(word.length);
-    document.getElementById('Task').innerText = task;
+    setTimeout(function(){
+        task = "-".repeat(word.length);
+        document.getElementById('Task').innerText = task;
+    },200);
     document.getElementById('points').innerText = "❤️❤️❤️❤️❤️";
     document.getElementsByClassName('image')[0].id = 'image0';
     document.getElementById('imageWin').style.visibility = "hidden";
