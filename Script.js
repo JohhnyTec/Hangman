@@ -35,6 +35,7 @@ function Start() {
     eren.id = "imageerenstandard";
     HBMusic.pause();
     SAVE.minuspoints = 0;
+
     if (document.getElementById('addedWord').value == "") {
         fetch('http://127.0.0.1:5000/wort/' + SAVE.levelchoice)
             .then(response => {
@@ -62,6 +63,7 @@ function Start() {
         task = "-".repeat(word.length);
         document.getElementById('Task').innerText = task;
     }, 200);
+    
     document.getElementById('points').innerText = "❤️❤️❤️❤️❤️";
     document.getElementsByClassName('image')[0].id = 'image0';
     document.getElementById('imageWin').style.visibility = "hidden";
