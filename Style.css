@@ -263,3 +263,7 @@ option {
     font-size: 50px;
     color: unset;
 }
+
+#soundbox {
+    visibility: hidden;
+}
