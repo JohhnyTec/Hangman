@@ -103,38 +103,38 @@ option {
 
 #image0 {
     height: 300px;
-    background-image: url(GalgenSchwung.gif);
+    background-image: url(Pictures/GalgenSchwung.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 #image1 {
     height: 300px;
-    background-image: url(KopfSchwung.gif);
+    background-image: url(Pictures/KopfSchwung.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }#image2 {
     height: 300px;
-    background-image: url(BoddySchwung.gif);
+    background-image: url(Pictures/BoddySchwung.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }#image3 {
     height: 300px;
-    background-image: url(ArmsSchwung.gif);
+    background-image: url(Pictures/ArmsSchwung.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }#image4 {
     height: 300px;
-    background-image: url(LegsSchwung.gif);
+    background-image: url(Pictures/LegsSchwung.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }#image5 {
     height: 300px;
-    background-image: url(DeadSchwung.gif);
+    background-image: url(Pictures/DeadSchwung.gif);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -145,14 +145,14 @@ option {
     left: 40%;
     height: 300px;
     width: 300px;
-    background-image: url(Gewonnen.png);
+    background-image: url(Pictures/Gewonnen.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     visibility: hidden;
 }
 #Game {
-    background-image: url(Hintergrund_Hangman.png);
+    background-image: url(Pictures/Hintergrund_Hangman.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -164,7 +164,7 @@ option {
 }
 
 #imageerenstandard {
-    background-image: url(StanniEren.png);
+    background-image: url(Pictures/StanniEren.png);
     background-size: 200px;
     background-position: center;
     background-repeat: no-repeat;
@@ -177,7 +177,7 @@ option {
 }
 
 #imageerenhappy {
-    background-image: url(HappyEren.png);
+    background-image: url(Pictures/HappyEren.png);
     background-size: 200px;
     background-position: center;
     background-repeat: no-repeat;
@@ -189,7 +189,7 @@ option {
 }
 
 #imageerensauer {
-    background-image: url(MadEren.png);
+    background-image: url(Pictures/MadEren.png);
     background-size: 200px;
     background-position: center;
     background-repeat: no-repeat;
@@ -201,7 +201,7 @@ option {
 }
 
 #imageerenevil {
-    background-image: url(EvilEren.png);
+    background-image: url(Pictures/EvilEren.png);
     background-size: 200px;
     background-position: center;
     background-repeat: no-repeat;
